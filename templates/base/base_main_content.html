@@ -1,0 +1,15 @@
+<section class="content-header">
+    <h1>
+        {% block content_title %} {% endblock %}
+        <small>{% block content_small_title %} {% endblock %}</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+
+<!-- 主要內容 -->
+<section class="content">
+    {% block content_body %} {% endblock %}
+</section>

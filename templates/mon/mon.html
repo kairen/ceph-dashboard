@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block title %} MON Dashboard {% endblock %}
+
+{% block head %}
+
+    <link href="{{ STATIC_URL }}dist/css/ceph_dashboard.css" rel="stylesheet" type="text/css" />
+    <link href="{{ STATIC_URL }}dist/css/skins/_all-skins.css" rel="stylesheet" type="text/css" />
+
+    <!-- My Script -->
+    <script src="{{ STATIC_URL }}dist/js/app.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}dist/js/demo.js" type="text/javascript"></script>
+
+{% endblock %}
+
+{# body block #}
+{% block body %}
+
+{% endblock %}
+
+{# main-slider block #}
+{% block main-sidebar%}
+    {% include 'mon/mon_slider.html' %}
+{% endblock %}
+
+{# main-content block #}
+{% block main-content%}
+    {% include 'mon/mon_content.html' %}
+{% endblock %}
+
