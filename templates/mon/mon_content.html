@@ -8,4 +8,101 @@
 {# body block #}
 {% block content_body %}
 
+    <div class="col-md-4">
+            <div class="box box-solid box-info">
+                <div class="box-header">
+                    <h3 class="fa fa-eye box-title"> ceph-node1 </h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body no-padding">
+                    <table class="table table-condensed">
+                        <tbody>
+                        <tr><th>Key</th><th>Value</th></tr>
+                        <tr>
+                            <td>Rank </td>
+                            <td> 0 </td>
+                        </tr>
+                        <tr>
+                            <td>IP 位置 </td>
+                            <td> 10.21.20.161:6789/0 </td>
+                        </tr>
+                        <tr>
+                            <td>延遲秒數 </td>
+                            <td> 0 </td>
+                        </tr>
+                         <tr>
+                            <td>偏移秒數 </td>
+                            <td> 0 </td>
+                        </tr>
+                        <tr>
+                            <td>健康狀態 </td>
+                            <td>
+                                {% if node.up != 1 %}
+                                    <small class="label bg-green"> 正常 </small>
+                                {% else  %}
+                                    <small class="label bg-yellow">Warning</small>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>細節錯誤資訊 </td>
+                            <td>
+                                <small class="label bg-green"> 無錯誤 </small>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    <div class="col-md-4">
+            <div class="box box-solid box-info">
+                <div class="box-header">
+                    <h3 class="fa fa-eye box-title"> ceph-node2 </h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body no-padding">
+                    <table class="table table-condensed">
+                        <tbody>
+                        <tr><th>Key</th><th>Value</th></tr>
+                        <tr>
+                            <td>ID </td>
+                            <td> 1 </td>
+                        </tr>
+                        <tr>
+                            <td>IP 位置 </td>
+                            <td> 10.21.20.162:6789/0 </td>
+                        </tr>
+                        <tr>
+                            <td>延遲秒數 </td>
+                            <td> 0.000618 </td>
+                        </tr>
+                         <tr>
+                            <td>偏移秒數 </td>
+                            <td> -0.962211 </td>
+                        </tr>
+                        <tr>
+                            <td>健康狀態 </td>
+                            <td>
+                                {% if node.up == 1 %}
+                                    <small class="label bg-green">Ok</small>
+                                {% else  %}
+                                    <small class="label bg-yellow">警告</small>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>細節錯誤資訊 </td>
+                            <td> <small class="label bg-yellow"> clock skew 0.962211s > max 0.05s </small> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 {% endblock %}

@@ -1,6 +1,4 @@
   $(function () {
-        /* jQueryKnob */
-
         $(".knob").knob({
 
           draw: function () {

@@ -1,0 +1,31 @@
+
+{% if warn_count > 0 or err_count > 0%}
+<div class="row">
+<div class="col-md-12">
+    <div class="box box-default collapsed-box">
+        <div class="box-header with-border">
+            <i class="fa fa-warning"></i>
+            <h3 class="box-title"> 叢集警告訊息 </h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+
+        <div class="box-body">
+            {% for alert in health_detail %}
+
+                <div class="callout
+                {% if alert.severity == 'HEALTH_WARN' %}
+                    callout-warning
+                {% elif alert.severity == 'HEALTH_ERR' %}
+                    callout-danger
+                {% endif %}">
+                    <h4><i class="icon fa fa-ban"></i> {{ alert.severity }} </h4>
+                    <h4>{{ alert.summary }}</h4>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{% endif %}

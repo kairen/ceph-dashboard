@@ -1,10 +1,4 @@
       $(function () {
-        /*
-         * Flot Interactive Chart
-         * -----------------------
-         */
-        // We use an inline data source in the example, usually data would
-        // be fetched from a server
         var data = [], totalPoints = 100;
         function getRandomData() {
 
@@ -15,12 +9,12 @@
           while (data.length < totalPoints) {
 
             var prev = data.length > 0 ? data[data.length - 1] : 50,
-                    y = prev + Math.random() * 10 - 5;
+                    y =  Math.random() * 100 - 5;
 
             if (y < 0) {
               y = 0;
-            } else if (y > 100) {
-              y = 100;
+            } else if (y > 10000) {
+              y = 10000;
             }
 
             data.push(y);
@@ -51,7 +45,7 @@
           },
           yaxis: {
             min: 0,
-            max: 100,
+            max: 10000,
             show: true
           },
           xaxis: {
@@ -76,7 +70,7 @@
           update();
         }
         //REALTIME TOGGLE
-        $("#realtime .btn").click(function () {
+        $("#realtime_writes_iops .btn").click(function () {
           if ($(this).data("toggle") === "on") {
             realtime = "on";
           }

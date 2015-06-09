@@ -1,0 +1,94 @@
+<div class="row">
+
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box
+        {% if health_message == 'HEALTH_WARN' %}
+            bg-yellow
+        {% elif health_message == 'HEALTH_ERROR' %}
+            bg-red
+        {% else %}
+            bg-green
+        {% endif %}
+        ">
+            <span class="fa fa-heart info-box-text"> 整體健康狀況 </span>
+            <div class="inner">
+                <h1>
+                    {% if health_message == 'HEALTH_WARN' %}
+                        WARN
+                    {% elif health_message == 'HEALTH_ERROR' %}
+                        ERROR
+                    {% else %}
+                        OK
+                    {% endif %}
+                </h1>
+                <p> 最後更新時間為 1 秒之前 </p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">更多資訊 <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box
+        {% if osd_message.osd_in == osd_message.osd_up %}
+            bg-green
+        {% elif osd_message.osd_up != osd_message.osd_total %}
+            bg-red
+        {% else %}
+            bg-yellow
+        {% endif %}
+        ">
+            <span class="fa fa-hdd-o info-box-text"> OSD 整體狀況 </span>
+            <div class="inner">
+                <h1> {{ osd_message.osd_in }} /  {{ osd_message.osd_up }}</h1>
+                <p> In & Up </p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">更多資訊 <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box
+        {% if mon_message.quorum_count == mon_message.mon_count %}
+            bg-green
+        {% elif mon_message.quorum_count == 0 %}
+            bg-red
+        {% else %}
+            bg-yellow
+        {% endif %}
+        ">
+            <span class="fa fa-heart info-box-text"> MONITORS 整體狀況 </span>
+            <div class="inner">
+                <h1> {{ mon_message.quorum_count }} / {{ mon_message.mon_count }}</h1>
+                <p> Quorum </p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">更多資訊 <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-green">
+            <span class="fa fa-heart info-box-text"> POOLS 整體狀況 </span>
+            <div class="inner">
+                <h1> {{ pool_message }} </h1>
+                <p> Active </p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">更多資訊 <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+</div>

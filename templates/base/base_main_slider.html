@@ -3,50 +3,90 @@
     <li><a><i class="fa fa-circle-o text-red"></i><span>叢集重要資訊</span></a></li>
     <li><a><i class="fa fa-circle-o text-yellow"></i><span>叢集警告資訊</span></a></li>
     <li><a><i class="fa fa-circle-o text-green"></i><span>叢集正常資訊</span></a></li>
-    <li class="header">功能項目</li>
+
+    <li class="header">叢集 Monitoring</li>
+
     <!-- 叢集健康資訊 -->
     <li class="{% block health_active %} {% endblock %}">
         <a href="health">
-            <i class="fa fa-medkit"></i> <span>Ceph 整體健康資訊</span>
-            <small class="label pull-right bg-yellow">12</small>
+            <i class="fa fa-medkit"></i> <span>叢集整體健康資訊</span>
+            <small class="label pull-right {% block health_message_type %} {% endblock %}">
+               {% block health_message_count %} {% endblock %}
+            </small>
         </a>
     </li>
 
-    <!-- Ceph OSD叢集資訊 -->
     <li class="{% block osd_active %} {% endblock %}">
         <a href="osd">
-            <i class="fa fa-hdd-o"></i> <span>Ceph OSD 叢集資訊</span>
-            <small class="label pull-right bg-red">3</small>
+            <i class="fa fa-hdd-o"></i>
+            <span>叢集 OSD 資訊</span>
+            <small class="label pull-right {% block osd_message_type %} {% endblock %}">
+                {% block osd_message_count %} {% endblock %}
+            </small>
         </a>
     </li>
 
-    <!-- Ceph Mon 叢集資訊 -->
     <li class="{% block mon_active %} {% endblock %}">
         <a href="mon">
             <i class="fa fa-eye"></i>
-            <span>Ceph MON 叢集資訊</span>
-            <small class="label pull-right bg-green">Ok</small>
+            <span>叢集 MON 資訊</span>
+            <small class="label pull-right {% block mon_message_type %} {% endblock %}">
+               {% block mon_message_count %} {% endblock %}
+            </small>
         </a>
     </li>
-    <!-- 管理頁面 -->
-    <li class="treeview">
-        <a href="#Manager">
-            <i class="fa fa-dashboard"></i>
-            <span>管理儀表板</span>
-            <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="treeview-menu">
-            <li >
-                <a href="index.html">
-                    <i class="fa fa-circle-o"></i>Ceph OSD 參數設定
-                </a>
-            </li>
 
-            <li>
-                <a href="index2.html">
-                    <i class="fa fa-circle-o"></i>Ceph PG 參數設定
-                </a>
-            </li>
-        </ul>
+    <li class="{% block pool_active %} {% endblock %}">
+        <a href="pool">
+            <i class="fa fa-archive"></i>
+            <span>叢集 POOL 資訊</span>
+            <small class="label pull-right {% block pool_message_type %} {% endblock %}">
+                {% block pool_message_count %} {% endblock %}
+            </small>
+        </a>
+    </li>
+
+    <li class="{% block mds_active %} {% endblock %}">
+        <a href="mds">
+            <i class="fa fa-hdd-o"></i>
+            <span>叢集 MDS 資訊</span>
+            <small class="label pull-right bg-green">正常</small>
+        </a>
+    </li>
+
+    <li class="header">叢集 Managing</li>
+
+    <li>
+        <a href="#">
+            <i class="fa fa-medkit"></i> <span> OSD 管理與參數修改</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="#">
+            <i class="fa fa-eye"></i>
+            <span> MON 管理與參數修改</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="#">
+            <i class="fa fa-sitemap"></i>
+            <span> PG 管理與參數修改</span>
+        </a>
+    </li>
+
+    <li class="{% block pool_args_active %} {% endblock %}">
+        <a href="#">
+            <i class="fa fa-archive"></i>
+            <span> POOL 管理與參數修改</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="#">
+            <i class="fa fa-database"></i>
+            <span> MDS 管理與參數修改</span>
+        </a>
     </li>
 </ul>

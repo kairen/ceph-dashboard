@@ -1,0 +1,78 @@
+{% extends 'base/base_main_slider.html' %}
+
+{# Health Message #}
+{% block health_message_count %}
+  {% if warn_count == 0 %}
+      正常
+  {% else %}
+      {{ warn_count }}
+  {% endif %}
+{% endblock %}
+
+{% block health_message_type %}
+  {% if warn_count == 0 %}
+      bg-green
+  {% else %}
+      bg-yellow
+  {% endif %}
+
+{% endblock %}
+
+
+{# OSD Message  #}
+{% block osd_message_count %}
+  {% if osd_message.osd_counter == 0%}
+      正常
+  {% else %}
+      {{ osd_message.osd_counter }}
+  {% endif %}
+{% endblock %}
+
+
+{% block osd_message_type %}
+   {% if osd_message.osd_in == osd_message.osd_up %}
+       bg-green
+   {% elif osd_message.osd_up != osd_message.osd_total %}
+       bg-red
+   {% else %}
+       bg-red
+   {% endif %}
+{% endblock %}
+
+
+{# MON Message  #}
+{% block mon_message_count %}
+  {% if mon_message.msg_count == 0 %}
+      正常
+  {% else %}
+      {{ mon_message.msg_count }}
+  {% endif %}
+{% endblock %}
+
+
+{% block mon_message_type %}
+   {% if mon_message.msg_count == 0 %}
+       bg-green
+   {% else %}
+       bg-yellow
+   {% endif %}
+{% endblock %}
+
+
+{# Pool Message  #}
+{% block pool_message_count %}
+  {% if pool_details.pool_message == 0 %}
+      正常
+  {% else %}
+      {{ pool_details.pool_message }} dirty
+  {% endif %}
+{% endblock %}
+
+
+{% block pool_message_type %}
+   {% if pool_details.pool_message == 0 %}
+       bg-green
+   {% else %}
+       bg-red
+   {% endif %}
+{% endblock %}
