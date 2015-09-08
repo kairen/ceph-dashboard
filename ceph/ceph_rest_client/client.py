@@ -1,5 +1,6 @@
 import logging
 import requests
+from requests.auth import HTTPBasicAuth
 
 try:
     from lxml import etree
@@ -78,6 +79,7 @@ class CephClient(object):
         resp = self.http.request(
             method,
             self.endpoint + url,
+            auth=HTTPBasicAuth('admin', 'admin'),
             **kwargs)
 
         if resp.text:
